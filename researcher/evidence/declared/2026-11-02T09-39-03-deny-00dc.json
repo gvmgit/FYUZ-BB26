@@ -1,0 +1,45 @@
+{
+  "run_id": "2026-11-02T09-39-03-deny-00dc",
+  "unit": "deny",
+  "target": {
+    "metric": "decision_match_rate",
+    "value": 1.0
+  },
+  "grader": "rule-based-grader-v1",
+  "model_id": "us.anthropic.claude-sonnet-5",
+  "declared_at": "2026-11-02T09:39:03Z",
+  "team_code": "team09",
+  "track": "track-3",
+  "requests": [
+    [
+      "Agent",
+      "critic",
+      "run_experiment",
+      null
+    ],
+    [
+      "Agent",
+      "scientist",
+      "ask_critic",
+      null
+    ],
+    [
+      "Agent",
+      "orchestrator",
+      "ApproveChange",
+      "card-probe"
+    ],
+    [
+      "Agent",
+      "experimenter",
+      "ApplyNetworkChange",
+      "cell-3"
+    ],
+    [
+      "Agent",
+      "scientist",
+      "InvokeModel",
+      "unregistered-model"
+    ]
+  ]
+}

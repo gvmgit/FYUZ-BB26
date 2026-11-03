@@ -1,0 +1,76 @@
+{
+  "primary_track": "track-3",
+  "team_code": "team09",
+  "title": "Autonomous Telecom Researcher",
+  "evidence": {
+    "bucket": "bb26-p-team09-data-651343917891-use2",
+    "prefix": "evidence/",
+    "repo_path": "researcher/evidence/",
+    "audit_table_prefix": "TelecomResearcher-Audit",
+    "audit_index": "trace",
+    "log_groups": [
+      "/atr/audit",
+      "/aws/bedrock-agentcore/runtimes/telecom_researcher-*"
+    ]
+  },
+  "run_ids": [
+    "2026-11-02T09-38-45-allow-e107",
+    "2026-11-02T09-39-03-deny-00dc",
+    "2026-11-02T09-40-40-diagnosis-9194",
+    "2026-11-03T09-08-10-nlm_tuning-ceac",
+    "2026-11-02T09-39-46-pause-5845",
+    "2026-11-02T10-06-19-trace-3768",
+    "2026-11-02T10-05-12-trace-a6a5"
+  ],
+  "live_test_command": "python3 researcher/tools/show_record.py --run-id {run_id} --item {item}",
+  "rebuild_command": "python3 researcher/tools/rebuild.py",
+  "check_command": "python3 researcher/tools/check_units.py",
+  "reported_results": {
+    "allow": {
+      "decision_match_rate": 1.0,
+      "target": 1.0,
+      "pass": true,
+      "run_id": "2026-11-02T09-38-45-allow-e107"
+    },
+    "deny": {
+      "decision_match_rate": 1.0,
+      "target": 1.0,
+      "pass": true,
+      "run_id": "2026-11-02T09-39-03-deny-00dc"
+    },
+    "diagnosis": {
+      "located_accuracy": 1.0,
+      "target": 0.8,
+      "pass": true,
+      "run_id": "2026-11-02T09-40-40-diagnosis-9194"
+    },
+    "nlm_tuning": {
+      "joint_accuracy_gain": 0.3143,
+      "target": 0.1,
+      "pass": true,
+      "run_id": "2026-11-03T09-08-10-nlm_tuning-ceac"
+    },
+    "pause": {
+      "pause_refuses_then_resumes": 1.0,
+      "target": 1.0,
+      "pass": true,
+      "run_id": "2026-11-02T09-39-46-pause-5845"
+    },
+    "trace": {
+      "trace_complete": 1.0,
+      "target": 1.0,
+      "pass": true,
+      "run_id": "2026-11-02T10-06-19-trace-3768"
+    }
+  },
+  "complete_units": 6,
+  "frozen_test_sets": {
+    "diagnosis_v1.json": "eb606c577a364b9dfb49bbbfb9b54a770f727794bf00504e709e9de072779f76",
+    "nlm_test_v1.jsonl": "2675cc2dba3686c8f62ffb24d2bae69747c200203a477882657caed31456bc56"
+  },
+  "grader": "rule-based-grader-v1 (atr/grader.py); no model grades",
+  "model_artifact_s3_prefix": "s3://bb26-p-team09-data-651343917891-use2/atr-finetune/atr-2026-11-03T09-08-10-nlm-tuning-ceac/output/atr-2026-11-03T09-08-10-nlm-tuning-ceac/output/",
+  "data": "DATA.md",
+  "gaps": "GAPS.md",
+  "region": "us-east-2"
+}

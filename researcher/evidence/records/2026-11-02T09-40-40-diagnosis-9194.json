@@ -1,0 +1,51 @@
+{
+  "run_id": "2026-11-02T09-40-40-diagnosis-9194",
+  "recorded_at": "2026-11-02T10:04:49Z",
+  "unit": "diagnosis",
+  "target": {
+    "metric": "located_accuracy",
+    "value": 0.8
+  },
+  "grader": "rule-based-grader-v1",
+  "result": {
+    "metric": "located_accuracy",
+    "value": 1.0,
+    "estimate_accuracy": 1.0,
+    "n": 6,
+    "per_item": [
+      {
+        "located": true,
+        "estimate_ok": true,
+        "why": "kind and cell match"
+      },
+      {
+        "located": true,
+        "estimate_ok": true,
+        "why": "kind and cell match"
+      },
+      {
+        "located": true,
+        "estimate_ok": true,
+        "why": "kind and cell match"
+      },
+      {
+        "located": true,
+        "estimate_ok": true,
+        "why": "kind and cell match"
+      },
+      {
+        "located": true,
+        "estimate_ok": true,
+        "why": "kind and cell match"
+      },
+      {
+        "located": true,
+        "estimate_ok": true,
+        "why": "kind and cell match"
+      }
+    ],
+    "pass": true
+  },
+  "pass": true,
+  "note": "items uploaded after the run: the first upload failed on expired credentials (GAPS.md)"
+}

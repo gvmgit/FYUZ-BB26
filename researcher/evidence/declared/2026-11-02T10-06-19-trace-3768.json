@@ -1,0 +1,17 @@
+{
+  "run_id": "2026-11-02T10-06-19-trace-3768",
+  "unit": "trace",
+  "target": {
+    "metric": "trace_complete",
+    "value": 1.0
+  },
+  "grader": "rule-based-grader-v1",
+  "model_id": "us.anthropic.claude-sonnet-5",
+  "declared_at": "2026-11-02T10:06:19Z",
+  "team_code": "team09",
+  "track": "track-3",
+  "rebuilds": {
+    "run_id": "2026-11-02T09-40-40-diagnosis-9194",
+    "item": 0
+  }
+}

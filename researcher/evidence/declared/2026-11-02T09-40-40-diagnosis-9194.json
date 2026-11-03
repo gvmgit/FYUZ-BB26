@@ -1,0 +1,15 @@
+{
+  "run_id": "2026-11-02T09-40-40-diagnosis-9194",
+  "unit": "diagnosis",
+  "target": {
+    "metric": "located_accuracy",
+    "value": 0.8
+  },
+  "grader": "rule-based-grader-v1",
+  "model_id": "us.anthropic.claude-sonnet-5",
+  "declared_at": "2026-11-02T09:40:40Z",
+  "team_code": "team09",
+  "track": "track-3",
+  "test_set": "diagnosis_v1.json",
+  "test_set_sha256": "eb606c577a364b9dfb49bbbfb9b54a770f727794bf00504e709e9de072779f76"
+}

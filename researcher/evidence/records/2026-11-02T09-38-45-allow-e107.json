@@ -1,0 +1,43 @@
+{
+  "run_id": "2026-11-02T09-38-45-allow-e107",
+  "recorded_at": "2026-11-02T09:38:56Z",
+  "unit": "allow",
+  "target": {
+    "metric": "decision_match_rate",
+    "value": 1.0
+  },
+  "grader": "rule-based-grader-v1",
+  "result": {
+    "metric": "decision_match_rate",
+    "value": 1.0,
+    "n": 4,
+    "per_item": [
+      {
+        "expected": "ALLOW",
+        "decision": "ALLOW",
+        "match": true,
+        "has_record": true
+      },
+      {
+        "expected": "ALLOW",
+        "decision": "ALLOW",
+        "match": true,
+        "has_record": true
+      },
+      {
+        "expected": "ALLOW",
+        "decision": "ALLOW",
+        "match": true,
+        "has_record": true
+      },
+      {
+        "expected": "ALLOW",
+        "decision": "ALLOW",
+        "match": true,
+        "has_record": true
+      }
+    ],
+    "pass": true
+  },
+  "pass": true
+}

@@ -1,0 +1,7 @@
+# Installed by SageMaker script mode on top of the Hugging Face training container.
+# Versions are deliberately not pinned: pin them after the first successful run in your container.
+transformers
+peft
+trl
+datasets
+accelerate

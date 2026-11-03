@@ -1,0 +1,26 @@
+{
+  "run_id": "2026-11-02T10-06-19-trace-3768",
+  "recorded_at": "2026-11-02T10:06:38Z",
+  "unit": "trace",
+  "target": {
+    "metric": "trace_complete",
+    "value": 1.0
+  },
+  "grader": "rule-based-grader-v1",
+  "result": {
+    "metric": "trace_complete",
+    "value": 1.0,
+    "records": 279,
+    "checks": {
+      "one_trace_id": true,
+      "time_ordered": true,
+      "starts_with_request": true,
+      "four_agents_decided": true,
+      "model_calls_decided": true,
+      "published": true,
+      "ends_with_human_approval": true
+    },
+    "pass": true
+  },
+  "pass": true
+}

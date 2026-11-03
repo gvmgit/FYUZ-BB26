@@ -1,0 +1,56 @@
+{
+  "created": "2026-10-28T17:01:41",
+  "train_repeats": 1,
+  "splits": {
+    "train": {
+      "cases": 55,
+      "records": 385
+    },
+    "val": {
+      "cases": 30,
+      "records": 210
+    },
+    "test": {
+      "cases": 35,
+      "records": 245
+    }
+  },
+  "rules": {
+    "train": {
+      "tilts": [
+        4,
+        7,
+        13,
+        16
+      ],
+      "az": [
+        -120,
+        -60,
+        60,
+        120
+      ],
+      "seed0": 1000
+    },
+    "val": {
+      "tilts": [
+        6,
+        15
+      ],
+      "az": [
+        180
+      ],
+      "seed0": 2000
+    },
+    "test": {
+      "tilts": [
+        5,
+        14
+      ],
+      "az": [
+        -90,
+        90
+      ],
+      "seed0": 3000
+    }
+  }
+}

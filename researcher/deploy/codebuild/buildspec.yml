@@ -1,0 +1,49 @@
+# AWS CodeBuild: full deploy of the Telecom Researcher.
+#   1. CDK stack for PHASE (1 core, 2 + pipeline, 3 + always-on services; default 3). Grafana only if IAM Identity Center exists.
+#   2. AgentCore Gateway with the run_experiment and lab_execute tools (deploy/provision_gateway.py).
+#   3. The agents' ARM64 image -> ECR -> AgentCore Runtime; the review console -> Amplify (deploy/post_deploy.py).
+# Project: source = the uploaded zip in S3, image aws/codebuild/standard:7.0, PRIVILEGED on, 15 GB / 8 vCPU.
+version: 0.2
+
+env:
+  variables:
+    PHASE: "3"
+  exported-variables:
+    - AGENT_IMAGE
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+      nodejs: 20
+    commands:
+      - npm install -g aws-cdk@2
+      - pip install --upgrade boto3 -r researcher/deploy/cdk/requirements.txt
+      - docker run --privileged --rm public.ecr.aws/eks-distro-build-tooling/binfmt-misc:qemu-v7.0.0 --install arm64 || docker run --privileged --rm tonistiigi/binfmt --install arm64   # ECR Public first: no Docker Hub pull limits
+      - docker buildx create --use --name atr --driver-opt image=public.ecr.aws/vend/moby/buildkit:buildx-stable-1
+  build:
+    commands:
+      - export CDK_DEFAULT_REGION=$AWS_REGION
+      - export CDK_DEFAULT_ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
+      - export ATR_REGION=$AWS_REGION
+      - IDC=$(aws sso-admin list-instances --query 'length(Instances)' --output text 2>/dev/null || echo 0)
+      - if [ "$IDC" != "0" ] && [ "$IDC" != "None" ]; then GRAFANA=true; else GRAFANA=false; fi
+      - echo "phase $PHASE, grafana $GRAFANA, account $CDK_DEFAULT_ACCOUNT, region $CDK_DEFAULT_REGION"
+      - cd $CODEBUILD_SRC_DIR/researcher/deploy/cdk
+      - cdk deploy -c phase=$PHASE -c grafana=$GRAFANA --require-approval never --outputs-file outputs.json
+      - cat outputs.json
+      - cd $CODEBUILD_SRC_DIR/researcher
+      - python deploy/provision_gateway.py --outputs deploy/cdk/outputs.json > deploy/cdk/gateway.txt
+      - cat deploy/cdk/gateway.txt
+      - export AGENT_IMAGE=$CDK_DEFAULT_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/atr-agents:latest
+      - aws ecr describe-repositories --repository-names atr-agents >/dev/null 2>&1 || aws ecr create-repository --repository-name atr-agents
+      - aws ecr get-login-password | docker login --username AWS --password-stdin $CDK_DEFAULT_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com
+      - cd $CODEBUILD_SRC_DIR && docker buildx build --platform linux/arm64 -f researcher/deploy/agentcore/Dockerfile -t $AGENT_IMAGE --push .
+      - cd $CODEBUILD_SRC_DIR/researcher && python deploy/post_deploy.py --outputs deploy/cdk/outputs.json --gateway deploy/cdk/gateway.txt --image $AGENT_IMAGE --env-out deploy/cdk/atr_aws.env
+
+artifacts:
+  files:
+    - researcher/deploy/cdk/outputs.json
+    - researcher/deploy/cdk/gateway.txt
+    - researcher/deploy/cdk/atr_aws.env
+  discard-paths: yes

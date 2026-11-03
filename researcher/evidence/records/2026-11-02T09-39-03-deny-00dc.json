@@ -1,0 +1,55 @@
+{
+  "run_id": "2026-11-02T09-39-03-deny-00dc",
+  "recorded_at": "2026-11-02T09:39:16Z",
+  "unit": "deny",
+  "target": {
+    "metric": "decision_match_rate",
+    "value": 1.0
+  },
+  "grader": "rule-based-grader-v1",
+  "result": {
+    "metric": "decision_match_rate",
+    "value": 1.0,
+    "n": 6,
+    "per_item": [
+      {
+        "expected": "DENY",
+        "decision": "DENY",
+        "match": true,
+        "has_record": true
+      },
+      {
+        "expected": "DENY",
+        "decision": "DENY",
+        "match": true,
+        "has_record": true
+      },
+      {
+        "expected": "DENY",
+        "decision": "DENY",
+        "match": true,
+        "has_record": true
+      },
+      {
+        "expected": "DENY",
+        "decision": "DENY",
+        "match": true,
+        "has_record": true
+      },
+      {
+        "expected": "DENY",
+        "decision": "DENY",
+        "match": true,
+        "has_record": true
+      },
+      {
+        "expected": "DENY",
+        "decision": "DENY",
+        "match": true,
+        "has_record": true
+      }
+    ],
+    "pass": true
+  },
+  "pass": true
+}

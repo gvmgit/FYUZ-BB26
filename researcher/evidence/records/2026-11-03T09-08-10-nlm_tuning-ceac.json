@@ -1,0 +1,23 @@
+{
+  "run_id": "2026-11-03T09-08-10-nlm_tuning-ceac",
+  "recorded_at": "2026-11-03T09:32:32Z",
+  "unit": "nlm_tuning",
+  "target": {
+    "metric": "joint_accuracy_gain",
+    "value": 0.1
+  },
+  "grader": "rule-based-grader-v1",
+  "result": {
+    "metric": "joint_accuracy_gain",
+    "value": 0.3143,
+    "base_joint_accuracy": 0.0,
+    "tuned_joint_accuracy": 0.3143,
+    "base_correct": 0,
+    "tuned_correct": 11,
+    "n": 35,
+    "pass": true
+  },
+  "pass": true,
+  "training_job": "atr-2026-11-03T09-08-10-nlm-tuning-ceac",
+  "adapter": "s3://bb26-p-team09-data-651343917891-use2/atr-finetune/atr-2026-11-03T09-08-10-nlm-tuning-ceac/output/atr-2026-11-03T09-08-10-nlm-tuning-ceac/output/model.tar.gz"
+}

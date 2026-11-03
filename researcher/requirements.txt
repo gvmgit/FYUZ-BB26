@@ -1,0 +1,12 @@
+# Python 3.10 (MAVERIC's pinned scikit-image/torch have no wheels for newer versions).
+# MAVERIC's own dev tools (notebooks, linters) are in maveric-1.0.0\requirements-dev.txt and are not needed here.
+strands-agents==1.62.0
+bedrock-agentcore==1.25.1
+boto3==1.43.120
+numpy==1.24.2
+pandas==1.5.3
+scipy==1.10.1
+scikit-learn==1.2.1
+torch==2.0.0
+gpytorch==1.9.1
+matplotlib==3.6.3

@@ -1,0 +1,39 @@
+{
+  "run_id": "2026-11-02T09-38-45-allow-e107",
+  "unit": "allow",
+  "target": {
+    "metric": "decision_match_rate",
+    "value": 1.0
+  },
+  "grader": "rule-based-grader-v1",
+  "model_id": "us.anthropic.claude-sonnet-5",
+  "declared_at": "2026-11-02T09:38:45Z",
+  "team_code": "team09",
+  "track": "track-3",
+  "requests": [
+    [
+      "Agent",
+      "experimenter",
+      "run_experiment",
+      null
+    ],
+    [
+      "Agent",
+      "orchestrator",
+      "ask_critic",
+      null
+    ],
+    [
+      "Agent",
+      "scientist",
+      "InvokeModel",
+      "us.anthropic.claude-sonnet-5"
+    ],
+    [
+      "Human",
+      "reviewer-team09",
+      "ApproveChange",
+      "card-probe"
+    ]
+  ]
+}

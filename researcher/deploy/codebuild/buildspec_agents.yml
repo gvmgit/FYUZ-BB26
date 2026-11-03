@@ -1,0 +1,23 @@
+# Agents only: rebuild the agents' ARM64 image, push it, update the AgentCore Runtime (and republish the console).
+# The stack itself is not touched. Started by launch.py --agents-only (buildspec override on the atr-deploy project).
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - pip install --upgrade boto3
+      - docker run --privileged --rm public.ecr.aws/eks-distro-build-tooling/binfmt-misc:qemu-v7.0.0 --install arm64 || docker run --privileged --rm tonistiigi/binfmt --install arm64   # ECR Public first: no Docker Hub pull limits
+      - docker buildx create --use --name atr --driver-opt image=public.ecr.aws/vend/moby/buildkit:buildx-stable-1
+  build:
+    commands:
+      - export ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
+      - export ATR_REGION=$AWS_REGION
+      - export AGENT_IMAGE=$ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/atr-agents:latest
+      - cd $CODEBUILD_SRC_DIR/researcher
+      - python deploy/stack_outputs.py deploy/cdk/outputs.json
+      - python deploy/provision_gateway.py --outputs deploy/cdk/outputs.json > deploy/cdk/gateway.txt
+      - aws ecr get-login-password | docker login --username AWS --password-stdin $ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com
+      - cd $CODEBUILD_SRC_DIR && docker buildx build --platform linux/arm64 -f researcher/deploy/agentcore/Dockerfile -t $AGENT_IMAGE --push .
+      - cd $CODEBUILD_SRC_DIR/researcher && python deploy/post_deploy.py --outputs deploy/cdk/outputs.json --gateway deploy/cdk/gateway.txt --image $AGENT_IMAGE --env-out deploy/cdk/atr_aws.env

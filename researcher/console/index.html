@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Review Console</title>
+<style>
+:root{--bg:#f7f9fc;--panel:#fff;--fg:#1e242c;--muted:#5f6976;--line:#d6dce4;--accent:#1f3a5f;--ok:#1e824c;--okbg:#e4f4e8;
+--bad:#b02a30;--badbg:#fcecec;--warn:#9a6500;--warnbg:#fff3cd;--chip:#eaf1fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0f141a;--panel:#161d25;--fg:#e6edf3;--muted:#9aa6b2;--line:#2c3540;--accent:#8fb4e3;
+--ok:#56d38a;--okbg:#10301d;--bad:#ff8a8a;--badbg:#3a1618;--warn:#f0c060;--warnbg:#3a2e0a;--chip:#1c2a3c}}
+*{box-sizing:border-box}body{margin:0;font:15px/1.45 system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+header{background:var(--accent);color:#fff;padding:14px 16px}header h1{margin:0;font-size:20px}header p{margin:2px 0 0;opacity:.85;font-size:13px}
+@media(prefers-color-scheme:dark){header{color:#0f141a}}
+main{display:grid;grid-template-columns:340px 1fr;gap:16px;padding:16px;max-width:1300px;margin:auto}
+@media(max-width:860px){main{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+.list button{display:block;width:100%;text-align:left;background:none;border:1px solid var(--line);border-radius:8px;padding:10px;margin:0 0 8px;color:var(--fg);cursor:pointer;font:inherit}
+.list button.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--chip)}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:10px;background:var(--chip);margin-right:4px}
+.confirmed{background:var(--okbg);color:var(--ok)}.refuted{background:var(--badbg);color:var(--bad)}.review{background:var(--warnbg);color:var(--warn)}
+table{border-collapse:collapse;width:100%;font-size:13px}td,th{border-bottom:1px solid var(--line);padding:5px 6px;text-align:left;vertical-align:top}
+h2{font-size:18px;margin:0 0 6px}h3{font-size:15px;margin:18px 0 6px;color:var(--accent)}
+.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.mod{border:1px solid var(--line);border-radius:8px;padding:8px}.mod.on{background:var(--okbg);border-color:var(--ok)}
+.hitl{background:var(--warnbg);border-radius:8px;padding:10px;margin-top:12px}
+form input,form select{font:inherit;padding:6px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--fg);margin:3px 4px 3px 0}
+form button{font:inherit;padding:6px 12px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+@media(prefers-color-scheme:dark){form button{color:#0f141a}}
+ol.steps li{margin:3px 0}.timeline span{display:inline-block;font-size:12px;padding:2px 6px;margin:2px;border-radius:6px;background:var(--chip)}
+.err{color:var(--bad)}
+</style>
+</head>
+<body>
+<header><h1>Research Review Console</h1><p>Findings from the autonomous researcher: evidence, falsification attempts, lab replication, artefacts. Accept, reject or request another experiment.</p></header>
+<main>
+  <section class="panel">
+    <label class="muted">Show <select id="filter"><option value="all">all findings</option><option value="confirmed">confirmed</option><option value="pending">awaiting review</option></select></label>
+    <div id="list" class="list" style="margin-top:10px"></div>
+    <h3>Finding graph</h3>
+    <div id="graph" class="muted">loading...</div>
+  </section>
+  <section class="panel" id="detail"><p class="muted">Select a finding.</p></section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

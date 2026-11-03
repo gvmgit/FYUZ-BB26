@@ -1,0 +1,19 @@
+{
+  "run_id": "2026-11-02T09-39-46-pause-5845",
+  "recorded_at": "2026-11-02T09:40:19Z",
+  "unit": "pause",
+  "target": {
+    "metric": "pause_refuses_then_resumes",
+    "value": 1.0
+  },
+  "grader": "rule-based-grader-v1",
+  "result": {
+    "metric": "pause_refuses_then_resumes",
+    "value": 1.0,
+    "refused_while_paused": true,
+    "no_finding_while_paused": true,
+    "allowed_after_resume": true,
+    "pass": true
+  },
+  "pass": true
+}

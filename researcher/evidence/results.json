@@ -1,0 +1,49 @@
+{
+  "complete_units": 6,
+  "team_code": "team09",
+  "track": "track-3",
+  "units": {
+    "allow": {
+      "metric": "decision_match_rate",
+      "pass": true,
+      "run_id": "2026-11-02T09-38-45-allow-e107",
+      "target": 1.0,
+      "value": 1.0
+    },
+    "deny": {
+      "metric": "decision_match_rate",
+      "pass": true,
+      "run_id": "2026-11-02T09-39-03-deny-00dc",
+      "target": 1.0,
+      "value": 1.0
+    },
+    "diagnosis": {
+      "metric": "located_accuracy",
+      "pass": true,
+      "run_id": "2026-11-02T09-40-40-diagnosis-9194",
+      "target": 0.8,
+      "value": 1.0
+    },
+    "nlm_tuning": {
+      "metric": "joint_accuracy_gain",
+      "pass": true,
+      "run_id": "2026-11-03T09-08-10-nlm_tuning-ceac",
+      "target": 0.1,
+      "value": 0.3143
+    },
+    "pause": {
+      "metric": "pause_refuses_then_resumes",
+      "pass": true,
+      "run_id": "2026-11-02T09-39-46-pause-5845",
+      "target": 1.0,
+      "value": 1.0
+    },
+    "trace": {
+      "metric": "trace_complete",
+      "pass": true,
+      "run_id": "2026-11-02T10-06-19-trace-3768",
+      "target": 1.0,
+      "value": 1.0
+    }
+  }
+}
