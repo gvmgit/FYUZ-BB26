@@ -66,4 +66,4 @@ What to say if asked:
 | 0:50-1:15 | 10, 11 | Live run: cell 3 found after 95 experiments, Human ALLOW. Allow, deny, pause and trace: 4 of 4 pass. | Demonstration 20% |
 | 1:15-1:35 | 12, 13 | Six sealed faults, six found, targets declared first, graded by code; every number has a record. | Evidence 15% |
 | 1:35-1:50 | 14 | What did not work is in GAPS.md, failed runs kept. | Openness 5% |
-| 1:50-2:00 | 16 | Minutes instead of weeks, and the engineer still decides. Then the live test. | Presentation 5% |
+| 1:50-2:00 | 15 | Minutes instead of weeks, and the engineer still decides. Then the live test. | Presentation 5% |
