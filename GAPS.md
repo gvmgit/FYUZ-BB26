@@ -32,8 +32,11 @@ What did not work, or is weaker than it looks, with the row it limits. Run ids r
 7. **Fixed during the event.** A warm run_experiment Lambda kept the first field log it had loaded; it now reloads when
    the S3 object changes. Runs before 2026-11-02 14:25 UTC used one planted fault per deployment, so they were unaffected,
    but they are not part of the reported evidence.
-8. **Demo recording.** `researcher/demo_video/NetworkIQ_Demo.mp4` (also in the submission bucket under `video/`) was recorded on this build.
-   Its live part is a demo run (`2026-11-02T15-04-57-demo-live`) that is not one of the reported runs.
+8. **Demo recording.** `researcher/demo_video/NetworkIQ_Demo.mp4` (also in the submission bucket under `video/`) was recorded on this
+   build. Its live part is one demo run, `2026-11-03T12-04-04-live-demo`, started from AWS CloudShell and shown in CloudShell, the
+   AWS console and our dashboard; it is not one of the reported runs. Earlier demo runs (`2026-11-02T15-04-57-demo-live`,
+   `2026-11-03T10-23-57-cloudshell-live`, `2026-11-03T11-39-40-live-demo`) are in the account with their records; one recording
+   attempt of the dashboard failed (a stale local server) and was redone with a new run.
 9. **Data provenance to confirm.** The 3-cell simulation data came with the MAVERIC material we started from; the
     exact public download location is not recorded in `DATA.md` yet.
 10. **Logs Insights misses the allow run.** The allow unit (`2026-11-02T09-38-45-allow-e107`) was the first run after
