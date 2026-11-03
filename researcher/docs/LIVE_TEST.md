@@ -63,7 +63,7 @@ What to say if asked:
 | 0:00-0:15 | 2 | Operators won't let AI agents near the network: no policy, no audit, no approval. The barrier is trust. | Relevance 20% |
 | 0:15-0:35 | 5, 6 | A swarm that must prove itself: four Strands agents, a critic with no evidence of its own, claims sealed first. | Innovation 25% |
 | 0:35-0:50 | 8, 9 | Built on the Breaking Barriers architecture; every call crosses one checkpoint outside the agents, in our account. | Production 10% |
-| 0:50-1:15 | 10, 11 | Live run: cell 3 found after 95 experiments, Human ALLOW. Allow, deny, pause and trace: 4 of 4 pass. | Demonstration 20% |
+| 0:50-1:15 | 10, 11 | Live run from CloudShell: cell 5 found after 99 experiments, Human ALLOW. Allow, deny, pause and trace: 4 of 4 pass. | Demonstration 20% |
 | 1:15-1:35 | 12, 13 | Six sealed faults, six found, targets declared first, graded by code; every number has a record. | Evidence 15% |
 | 1:35-1:50 | 14 | What did not work is in GAPS.md, failed runs kept. | Openness 5% |
 | 1:50-2:00 | 15 | Minutes instead of weeks, and the engineer still decides. Then the live test. | Presentation 5% |
