@@ -133,8 +133,8 @@ other = D.scan(rules, twin, inv, survey(Fault("cell_off", 4), seed=9204))[0]
 check("the rule is a screen for the cell, not for one fault: a dead cell 4 also fires it", other["fired"])
 check("a fault on a cell that does not interact with it stays quiet (cell 3 dead, cell 4 rule)",
       not any(D.scan(rules, twin, inv, survey(Fault("cell_off", 3), seed=s))[0]["fired"] for s in (9205, 9206, 9207)))
-# Documented, not hidden: a fault on a NEIGHBOUR can fire a rule, because it changes who serves the UEs nearby (the measured
-# cross-firing rate is in docs/RESEARCH_LOOP.md). So a rule says "something is wrong near here", not "this cell".
+# Documented, not hidden: a fault on a NEIGHBOUR can fire a rule, because it changes who serves the UEs nearby.
+# So a rule says "something is wrong near here", not "this cell".
 
 tmp = Path(tempfile.mkdtemp()) / "rules.json"
 D.save_rules([good, rejected], tmp)

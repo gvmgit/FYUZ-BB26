@@ -1,7 +1,7 @@
 """Checks the logic of every AWS adapter and the toggle against in-memory fakes (no AWS account needed).
 
 This proves the code around each AWS call - serialisation, policy, audit, parsing, config errors. It does NOT prove
-the AWS calls themselves; that needs a real account (see docs/AWS_MIGRATION.md).
+the AWS calls themselves; that needs a real account (see the README's step-by-step deployment).
 
 Run from the researcher folder:  ..\.venv\Scripts\python.exe scripts\check_adapters.py
 """

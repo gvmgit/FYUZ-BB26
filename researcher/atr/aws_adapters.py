@@ -3,7 +3,7 @@
 STATUS: written against the SDKs installed in this project's venv (strands-agents 1.62, bedrock-agentcore 1.25,
 boto3), but NOT executed against a real AWS account from this machine. Each adapter takes its AWS client as an
 optional argument, so the logic around the calls is unit-tested with fakes (scripts/check_adapters.py); the calls
-themselves need verifying in your account. See docs/AWS_MIGRATION.md.
+themselves need verifying in your account (the README's step-by-step deployment).
 """
 import json
 import os

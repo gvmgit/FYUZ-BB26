@@ -15,7 +15,7 @@ from .reasoner import Reasoner, TemplateReasoner
 MIN_IMPROVEMENT = 0.5   # score units; CI lower bound must clear this
 MIN_WIN_RATE = 0.8
 # How much the claim must beat the "twin is just biased here" explanation by (CI lower bound, score units). Chosen from
-# 180 mismatch-only cases (largest margin seen 0.061) and 12 real tilt faults; see docs/FINE_TUNING.md. Far below
+# 180 mismatch-only cases (largest margin seen 0.061) and 12 real tilt faults. Far below
 # MIN_IMPROVEMENT because a constant offset already explains most of a small setting change.
 NULL_MIN_GAP = 0.10
 # The claim must also hold on the second instrument (the simulator's own ground-truth tables): CI lower bound, score units.

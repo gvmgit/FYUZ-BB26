@@ -50,8 +50,7 @@ Presentation: `researcher/docs/NetworkIQ_Presentation.pptx`. What did not work: 
 
 Also deployed: Step Functions experiment protocol, Kinesis, S3 log lake, Glue + Athena features, OpenSearch Serverless
 log search, Neptune finding graph, SQS + EventBridge scheduling, CloudWatch dashboard. Every IAM role is under `/bb26/`
-with the `bb26-Boundary` permissions boundary. Region: us-east-2. Detail: `researcher/docs/AWS_MIGRATION.md`,
-`researcher/docs/RESEARCH_PIPELINE.md`, `researcher/docs/PROPOSAL_COVERAGE.md`.
+with the `bb26-Boundary` permissions boundary. Region: us-east-2.
 
 ## How the agents work
 
